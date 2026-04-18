@@ -15,7 +15,7 @@ func main() {
 	r := gin.Default()
 	cepController := dependencias()
 
-	r.GET("/cep", cepController.GetClima)
+	r.POST("/cep", cepController.GetClima)
 
 	r.Run(":8080")
 }

@@ -17,7 +17,7 @@ docker build -t cep-clima .
 ### Subir a aplicação
 
 ```bash
-docker run cep-clima
+docker run -p 8080:8080 cep-clima
 ```
 
 A API estará disponível em `http://localhost:8080`.
@@ -26,14 +26,14 @@ A API estará disponível em `http://localhost:8080`.
 
 **Linux/Mac (bash):**
 ```bash
-curl -X GET http://localhost:8080/cep \
+curl -X POST http://localhost:8080/cep \
   -H "Content-Type: application/json" \
   -d '{"cep":"01310100"}'
 ```
 
 **Windows (PowerShell):**
 ```powershell
-curl.exe -X GET http://localhost:8080/cep -H "Content-Type: application/json" -d '{\"cep\":\"01310100\"}'
+curl.exe -X POST http://localhost:8080/cep -H "Content-Type: application/json" -d '{\"cep\":\"01310100\"}'
 ```
 
 ## Rodando os testes com Docker

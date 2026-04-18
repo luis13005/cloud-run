@@ -8,10 +8,10 @@ import (
 	"os"
 )
 
-const (
-	cepUrl    = `https://viacep.com.br/ws/`
-	cepUrlEnd = `/json/`
-	climaUrl  = `http://api.weatherapi.com/v1/current.json`
+var (
+	CepUrl    = `https://viacep.com.br/ws/`
+	CepUrlEnd = `/json/`
+	ClimaUrl  = `http://api.weatherapi.com/v1/current.json`
 )
 
 type CepClimaService struct{}
@@ -23,7 +23,7 @@ func NewCepClimaService() *CepClimaService {
 func (s *CepClimaService) GetClimaByCep(cidade string) (*entity.ClimaOutput, error) {
 	weatherApi := os.Getenv("WEATHER_API")
 
-	req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, climaUrl, nil)
+	req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, ClimaUrl, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func (s *CepClimaService) GetClimaByCep(cidade string) (*entity.ClimaOutput, err
 }
 
 func (s *CepClimaService) GetCep(cepString string) (*entity.Cep, error) {
-	req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, cepUrl+cepString+cepUrlEnd, nil)
+	req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, CepUrl+cepString+CepUrlEnd, nil)
 	if err != nil {
 		return nil, err
 	}

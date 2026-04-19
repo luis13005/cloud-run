@@ -24,14 +24,12 @@ A API estará disponível em `http://localhost:8080`.
 
 ### Exemplo de uso
 
-**Linux/Mac (bash):**
+**Deploy em Cloud Run:**
 ```bash
-curl -X POST http://localhost:8080/cep \
-  -H "Content-Type: application/json" \
-  -d '{"cep":"01310100"}'
+curl.exe -X POST https://cloud-run-goexpert-463445218085.us-central1.run.app/cep -H "Content-Type: application/json" -d '{\"cep\":\"01310100\"}'
 ```
 
-**Windows (PowerShell):**
+**Local:**
 ```powershell
 curl.exe -X POST http://localhost:8080/cep -H "Content-Type: application/json" -d '{\"cep\":\"01310100\"}'
 ```

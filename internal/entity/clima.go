@@ -25,7 +25,7 @@ type Current struct {
 }
 
 type ClimaOutput struct {
-	Celsius    float32 `json:"tem_C"`
-	Fahrenheit float32 `json:"tem_F"`
-	Kelvin     float32 `json:"tem_K"`
+	Celsius    float32 `json:"temp_C"`
+	Fahrenheit float32 `json:"temp_F "`
+	Kelvin     float32 `json:"temp_K"`
 }

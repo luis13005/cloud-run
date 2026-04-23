@@ -28,7 +28,7 @@ func (cepController *CepController) GetClima(ctx *gin.Context) {
 		return
 	}
 	if !cepRegex.MatchString(input.Cep) {
-		ctx.JSON(http.StatusBadRequest, "invalid zipcode.")
+		ctx.JSON(http.StatusUnprocessableEntity, "invalid zipcode.")
 		return
 	}
 

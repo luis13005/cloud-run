@@ -4,6 +4,7 @@ import (
 	"cepclima/internal/entity"
 	"context"
 	"encoding/json"
+	"errors"
 	"net/http"
 	"os"
 )
@@ -62,7 +63,10 @@ func (s *CepClimaService) GetCep(cepString string) (*entity.Cep, error) {
 
 	var cep entity.Cep
 
-	json.NewDecoder(resp.Body).Decode(&cep)
+	if err = json.NewDecoder(resp.Body).Decode(&cep); err != nil {
+		return nil, errors.New("can not find zipcode")
+	}
+
 	return &cep, nil
 }
 
